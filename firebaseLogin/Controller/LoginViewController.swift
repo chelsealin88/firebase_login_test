@@ -7,18 +7,29 @@
 //
 
 import UIKit
-import FirebaseAuth
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     @IBAction func loginButton(_ sender: Any) {
         
         if emailTextField.text == "" || passwordTextField.text == "" {
@@ -29,11 +40,12 @@ class ViewController: UIViewController {
         } else {
             guard let email = emailTextField.text, let password = passwordTextField.text else {
                 print("form is not valid"); return }
+            
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 if error == nil {
                     print("you have successfully login")
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
-                    self.present(vc!, animated: true, completion: nil)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 
             }

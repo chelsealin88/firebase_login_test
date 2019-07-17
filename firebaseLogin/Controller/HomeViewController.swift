@@ -13,23 +13,27 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(handleLogout))
     }
     
-    @IBAction func logoutButton(_ sender: Any) {
-        if Auth.auth().currentUser != nil {
-            do {
-                try Auth.auth().signOut()
-                let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                present(vc, animated: true, completion: nil)
-                print("log out successfully")
-            } catch let error as NSError {
-                print(error.localizedDescription)
-                
-            }
-        }
+    @objc func handleLogout() {
+        print("Log out")
     }
+    
+//    @IBAction func logoutButton(_ sender: Any) {
+//        if Auth.auth().currentUser != nil {
+//            do {
+//                try Auth.auth().signOut()
+//                let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController") as! LoginViewController
+//                present(vc, animated: true, completion: nil)
+//                print("log out successfully")
+//            } catch let error as NSError {
+//                print(error.localizedDescription)
+//                
+//            }
+//        }
+//    }
     
     /*
     // MARK: - Navigation

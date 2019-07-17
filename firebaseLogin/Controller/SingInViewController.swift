@@ -7,28 +7,22 @@
 //
 
 import UIKit
-import FirebaseAuth
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+
 
 class SingInViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField! {
-        didSet {
-            emailTextField.placeholder = "E-mail"
-        }
-    }
-    @IBOutlet weak var passwordTextField: UITextField! {
-        didSet {
-            passwordTextField.placeholder = "PassWord"
-        }
-    }
-    
+    @IBOutlet weak var emailTextField: UITextField! 
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
     
+    // 會員註冊
     @IBAction func signButton(_ sender: Any) {
         
         if emailTextField.text == "" {
@@ -37,16 +31,29 @@ class SingInViewController: UIViewController {
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion: nil)
         } else {
-            guard let email = emailTextField.text, let password = passwordTextField.text else {
+            guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
                 print("form is not valid"); return }
+            
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 
+                // 成功註冊
                 if error == nil {
                     print("you have successfully signed up")
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")
-                    self.present(vc!, animated: true, completion: nil)
+                    let ref = Database.database().reference(fromURL: "https://logintest-ccce2.firebaseio.com/")
+                    let value = ["name":name, "email":email]
+                    // save user data
+                    ref.child("user").childByAutoId().setValue(value, withCompletionBlock: { (error, ref) in
+                        if error != nil {
+                            print(error)
+                            return
+                        } else {
+                            self.dismiss(animated: true, completion: nil)
+                            print("Saved user successfully into Firebase db")
+                        }
+                    })
                     
                 } else {
+                    
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     alertController.addAction(alertAction)
