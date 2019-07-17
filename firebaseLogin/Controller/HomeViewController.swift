@@ -11,15 +11,14 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class HomeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(handleLogout))
-    
-        print("view did load")
+        settingNavigationBar()
+        
         //user not loged in normally
-        Test()
+        GetUserID()
         
     }
     
@@ -27,13 +26,27 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-   
-    func Test() {
+    
+    func GetUserID() {
         let uid = Auth.auth().currentUser?.uid
         print("使用者UID:\(uid)")
         Database.database().reference().child("user").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
-            print(snapshot)
+            if let value = snapshot.value as? [String : AnyObject] {
+                self.navigationItem.title = value["name"] as? String
+            }
         }
+    }
+    
+    func settingNavigationBar() {
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(handleLogout))
+        
+    
+        var navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = .black
+
+
+        
     }
     
     @objc func handleLogout() {
@@ -48,16 +61,16 @@ class HomeViewController: UIViewController {
         }
         
     }
-
+    
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
