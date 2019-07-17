@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
 
@@ -15,25 +16,39 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(handleLogout))
+    
+        print("view did load")
+        //user not loged in normally
+        Test()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+   
+    func Test() {
+        let uid = Auth.auth().currentUser?.uid
+        print("使用者UID:\(uid)")
+        Database.database().reference().child("user").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
+            print(snapshot)
+        }
     }
     
     @objc func handleLogout() {
-        print("Log out")
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                print("Log out successfully")
+            } catch {
+                print(error.localizedDescription)
+            }
+            navigationController?.popViewController(animated: true)
+        }
+        
     }
-    
-//    @IBAction func logoutButton(_ sender: Any) {
-//        if Auth.auth().currentUser != nil {
-//            do {
-//                try Auth.auth().signOut()
-//                let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController") as! LoginViewController
-//                present(vc, animated: true, completion: nil)
-//                print("log out successfully")
-//            } catch let error as NSError {
-//                print(error.localizedDescription)
-//                
-//            }
-//        }
-//    }
+
     
     /*
     // MARK: - Navigation

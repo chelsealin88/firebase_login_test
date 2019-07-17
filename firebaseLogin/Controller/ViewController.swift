@@ -11,17 +11,25 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class LoginViewController: UIViewController {
+class ViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailTextField.text = "kk@gmail.com"
+        passwordTextField.text = "111111"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+//        emailTextField.text = ""
+//        passwordTextField.text = ""
+        
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     

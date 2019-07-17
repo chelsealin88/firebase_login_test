@@ -17,6 +17,7 @@ class SingInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField! 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,9 +41,10 @@ class SingInViewController: UIViewController {
                 if error == nil {
                     print("you have successfully signed up")
                     let ref = Database.database().reference(fromURL: "https://logintest-ccce2.firebaseio.com/")
+                    let uid = Auth.auth().currentUser?.uid
                     let value = ["name":name, "email":email]
                     // save user data
-                    ref.child("user").childByAutoId().setValue(value, withCompletionBlock: { (error, ref) in
+                    ref.child("user").child(uid!).setValue(value, withCompletionBlock: { (error, ref) in
                         if error != nil {
                             print(error)
                             return
