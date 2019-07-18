@@ -12,12 +12,14 @@ import FirebaseAuth
 import FirebaseDatabase
 
 
-class SingInViewController: UIViewController {
+class SingInViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var emailTextField: UITextField! 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var avatarImage: UIImageView!
+    
+    let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,10 @@ class SingInViewController: UIViewController {
     }
     
     @objc func selectedAvatar() {
-        print("Choose avatar")
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
     }
     
     // 會員註冊
@@ -78,6 +83,13 @@ class SingInViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        avatarImage.image = image
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
