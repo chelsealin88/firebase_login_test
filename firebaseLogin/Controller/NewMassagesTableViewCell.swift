@@ -12,6 +12,11 @@ class NewMassagesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLebal: UILabel!
     @IBOutlet weak var emailLebel: UILabel!
+    @IBOutlet weak var avatarImage: UIImageView! {
+        didSet {
+            avatarImage.layer.cornerRadius = 40
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

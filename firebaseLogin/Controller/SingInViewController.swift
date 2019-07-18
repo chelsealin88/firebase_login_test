@@ -17,10 +17,18 @@ class SingInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField! 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var avatarImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(selectedAvatar))
+        avatarImage.isUserInteractionEnabled = true
+        avatarImage.addGestureRecognizer(singleTap)
+    }
+    
+    @objc func selectedAvatar() {
+        print("Choose avatar")
     }
     
     // 會員註冊
