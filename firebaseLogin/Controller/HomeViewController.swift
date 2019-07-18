@@ -40,13 +40,12 @@ class HomeViewController: UIViewController {
     func settingNavigationBar() {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mail", style: .plain, target: self, action: #selector(handleNewMessage))
         
-    
         var navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = .black
-
-
         
+//        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
     }
     
     @objc func handleLogout() {
@@ -62,6 +61,12 @@ class HomeViewController: UIViewController {
         
     }
     
+    @objc func handleNewMessage() {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "NewMassagesTableViewController") as! NewMassagesTableViewController
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
     /*
      // MARK: - Navigation
