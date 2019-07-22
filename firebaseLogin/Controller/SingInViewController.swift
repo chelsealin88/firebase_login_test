@@ -37,6 +37,7 @@ class SingInViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     // 會員註冊
+    // todo: Fetch user image
     @IBAction func signButton(_ sender: Any) {
         
         if emailTextField.text == "" {

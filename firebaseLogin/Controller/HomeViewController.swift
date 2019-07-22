@@ -27,15 +27,15 @@ class HomeViewController: UIViewController {
     }
     
     
-    func GetUserID() {
-        let uid = Auth.auth().currentUser?.uid
-        print("使用者UID:\(uid)")
-        Database.database().reference().child("user").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
-            if let value = snapshot.value as? [String : AnyObject] {
-                self.navigationItem.title = value["name"] as? String
-            }
-        }
-    }
+//    func GetUserID() {
+//        let uid = Auth.auth().currentUser?.uid
+//        print("使用者UID:\(uid)")
+//        Database.database().reference().child("user").child(uid!).observeSingleEvent(of: .value) { (snapshot) in
+//            if let value = snapshot.value as? [String : AnyObject] {
+//                self.navigationItem.title = value["name"] as? String
+//            }
+//        }
+//    }
     
     func settingNavigationBar() {
         

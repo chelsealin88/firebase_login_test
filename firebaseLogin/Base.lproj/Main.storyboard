@@ -166,8 +166,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="vZP-Cj-eLV">
-                                <rect key="frame" x="147" y="144" width="120" height="120"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="vZP-Cj-eLV">
+                                <rect key="frame" x="147" y="134" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="DNR-3h-7fF"/>
                                     <constraint firstAttribute="height" constant="120" id="q0X-sz-NB2"/>
@@ -181,7 +181,7 @@
                             <constraint firstItem="RjZ-Lg-NlV" firstAttribute="centerX" secondItem="BGu-Tn-LbX" secondAttribute="centerX" id="E92-DN-lfP"/>
                             <constraint firstItem="RjZ-Lg-NlV" firstAttribute="centerY" secondItem="BGu-Tn-LbX" secondAttribute="centerY" id="Q7Q-Av-0v2"/>
                             <constraint firstItem="M20-8d-hn4" firstAttribute="top" secondItem="S2Q-yw-8nR" secondAttribute="top" constant="30" id="hb9-NF-qzU"/>
-                            <constraint firstItem="vZP-Cj-eLV" firstAttribute="top" secondItem="M20-8d-hn4" secondAttribute="bottom" constant="30" id="iKA-7E-RBh"/>
+                            <constraint firstItem="vZP-Cj-eLV" firstAttribute="top" secondItem="M20-8d-hn4" secondAttribute="bottom" constant="20" id="iKA-7E-RBh"/>
                             <constraint firstItem="S2Q-yw-8nR" firstAttribute="trailing" secondItem="M20-8d-hn4" secondAttribute="trailing" constant="20" id="ilt-z5-7e3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S2Q-yw-8nR"/>
