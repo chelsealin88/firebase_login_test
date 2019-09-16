@@ -19,6 +19,9 @@
 		5E51903222E0115500C77FF6 /* NewMassagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E51903122E0115500C77FF6 /* NewMassagesTableViewController.swift */; };
 		5E51903422E0116A00C77FF6 /* NewMassagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E51903322E0116A00C77FF6 /* NewMassagesTableViewCell.swift */; };
 		5E51903622E014E700C77FF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E51903522E014E700C77FF6 /* User.swift */; };
+		5EB2E8D2232F332000DBC508 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB2E8D1232F332000DBC508 /* ChatViewController.swift */; };
+		5EB2E8D6232F555400DBC508 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB2E8D5232F555400DBC508 /* MessageTableViewCell.swift */; };
+		5EB2E8DA232F57A200DBC508 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB2E8D9232F57A200DBC508 /* Chat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		5E51903122E0115500C77FF6 /* NewMassagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMassagesTableViewController.swift; sourceTree = "<group>"; };
 		5E51903322E0116A00C77FF6 /* NewMassagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMassagesTableViewCell.swift; sourceTree = "<group>"; };
 		5E51903522E014E700C77FF6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5EB2E8D1232F332000DBC508 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		5EB2E8D5232F555400DBC508 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		5EB2E8D9232F57A200DBC508 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 			children = (
 				5E51901622DD5CA300C77FF6 /* AppDelegate.swift */,
 				5E51903722E014F000C77FF6 /* Model */,
+				5EB2E8D8232F557900DBC508 /* View */,
 				5E51902A22DD778600C77FF6 /* Controller */,
 				5E51901A22DD5CA300C77FF6 /* Main.storyboard */,
 				5E51901D22DD5CA600C77FF6 /* Assets.xcassets */,
@@ -100,7 +107,7 @@
 				5E51902B22DD77A300C77FF6 /* SingInViewController.swift */,
 				5E51902D22DDA8CB00C77FF6 /* HomeViewController.swift */,
 				5E51903122E0115500C77FF6 /* NewMassagesTableViewController.swift */,
-				5E51903322E0116A00C77FF6 /* NewMassagesTableViewCell.swift */,
+				5EB2E8D1232F332000DBC508 /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,8 +116,19 @@
 			isa = PBXGroup;
 			children = (
 				5E51903522E014E700C77FF6 /* User.swift */,
+				5EB2E8D9232F57A200DBC508 /* Chat.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5EB2E8D8232F557900DBC508 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5EB2E8D5232F555400DBC508 /* MessageTableViewCell.swift */,
+				5E51903322E0116A00C77FF6 /* NewMassagesTableViewCell.swift */,
+			);
+			name = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		EB9C8BD77FEB5101446B6B02 /* Pods */ = {
@@ -251,8 +269,11 @@
 			files = (
 				5E51903422E0116A00C77FF6 /* NewMassagesTableViewCell.swift in Sources */,
 				5E51902C22DD77A300C77FF6 /* SingInViewController.swift in Sources */,
+				5EB2E8D2232F332000DBC508 /* ChatViewController.swift in Sources */,
+				5EB2E8D6232F555400DBC508 /* MessageTableViewCell.swift in Sources */,
 				5E51903222E0115500C77FF6 /* NewMassagesTableViewController.swift in Sources */,
 				5E51901922DD5CA300C77FF6 /* ViewController.swift in Sources */,
+				5EB2E8DA232F57A200DBC508 /* Chat.swift in Sources */,
 				5E51901722DD5CA300C77FF6 /* AppDelegate.swift in Sources */,
 				5E51902E22DDA8CB00C77FF6 /* HomeViewController.swift in Sources */,
 				5E51903622E014E700C77FF6 /* User.swift in Sources */,

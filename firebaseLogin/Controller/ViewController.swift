@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    
     @IBAction func loginButton(_ sender: Any) {
         
         if emailTextField.text == "" || passwordTextField.text == "" {

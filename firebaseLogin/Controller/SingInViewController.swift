@@ -85,10 +85,27 @@ class SingInViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        avatarImage.image = image
-        picker.dismiss(animated: true, completion: nil)
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+//        var selectedImageFromPicker: UIImage?
+//
+//        let image = info["UIImagePickerControllerOriginalImage"]
+//        print(image?.frame?.size)
+        
+//        if let editImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            selectedImageFromPicker = editImage
+//
+//        } else if let originImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            selectedImageFromPicker = originImage
+//        }
+//
+//        if let selectedImage = selectedImageFromPicker {
+//            avatarImage.image = selectedImage
+//        }
+        
+//        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+//        avatarImage.image = image
+//        picker.dismiss(animated: true, completion: nil)
     }
     
 }
