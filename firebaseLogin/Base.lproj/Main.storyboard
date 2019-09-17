@@ -205,13 +205,38 @@
                     <view key="view" contentMode="scaleToFill" id="cOa-8b-zui">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q2C-Il-Abt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="96" id="X9r-NN-Kgx">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X9r-NN-Kgx" id="Utg-ah-xHV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IZk-Rh-SnC" firstAttribute="trailing" secondItem="Q2C-Il-Abt" secondAttribute="trailing" id="Mzc-XY-E58"/>
+                            <constraint firstItem="Q2C-Il-Abt" firstAttribute="leading" secondItem="IZk-Rh-SnC" secondAttribute="leading" id="Zh0-hN-iMY"/>
+                            <constraint firstItem="Q2C-Il-Abt" firstAttribute="top" secondItem="IZk-Rh-SnC" secondAttribute="top" id="joC-9A-BZl"/>
+                            <constraint firstItem="IZk-Rh-SnC" firstAttribute="bottom" secondItem="Q2C-Il-Abt" secondAttribute="bottom" id="zzd-fD-8CX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IZk-Rh-SnC"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Q2C-Il-Abt" id="ldS-J1-de8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86d-Ly-fZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2661" y="113"/>
+            <point key="canvasLocation" x="2660.8695652173915" y="112.5"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="zjw-kB-QEO">

@@ -36,7 +36,6 @@ class ChatViewController: UIViewController {
     
     func loadChatRoom() {
         
-   
 //        self.ref.child("Chat").queryOrdered(byChild: "postDate").observe(.value) { (snapShot) in
 //            self.chats.removeAll()
 //            if let snapShot = snapShot.children.allObjects as? [DataSnapshot] {
@@ -64,7 +63,9 @@ class ChatViewController: UIViewController {
     @IBAction func sendBtn(_ sender: Any) {
         let ref = Database.database().reference().child("Chat")
         let toId = user!.id
-        let values = ["text": textField.text, "toId" : toId ]
+        let fromId = Auth.auth().currentUser?.uid
+        let time : NSNumber = NSNumber(value: Int(NSDate().timeIntervalSince1970))
+        let values = ["text": textField.text, "toId" : toId, "fromId" : fromId, "time" : time] as [String : Any]
         let childRef = ref.childByAutoId()
         childRef.updateChildValues(values)
     }

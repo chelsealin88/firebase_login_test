@@ -7,10 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
 
-struct Chat {
+class Chat: NSObject {
     
-    var text: String?
-//    var date: String?
+    @objc var fromId: String?
+    @objc var text: String?
+    @objc var time: NSNumber?
+    @objc var toId: String?
+    
+//    init(fromId: String, text: String, time:Int, toId: String) {
+//        self.fromId = fromId
+//        self.time = time
+//        self.text = text
+//        self.toId = toId
+//    }
 }
